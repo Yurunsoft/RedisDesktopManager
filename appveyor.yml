@@ -25,7 +25,7 @@ before_build:
   - python.exe ./build/utils/set_version.py %VERSION% > ./3rdparty/crashreporter/src/version.h
   - cd ./3rdparty/crashreporter
   - qmake CONFIG+=release DESTDIR=C:\projects\redisdesktopmanager\bin\windows\release
-powershell -Command "(Get-Content Makefile.Release).replace('DEFINES       =','DEFINES       = -DAPP_NAME=\\\"RedisDesktopManager\\\" -DAPP_VERSION=\\\""%VERSION%"\\\" -DCRASH_SERVER_URL=\\\"https://oops.redisdesktop.com/crash-report\\\"')" > Makefile.Release2
+  - powershell -Command "(Get-Content Makefile.Release).replace('DEFINES       =','DEFINES       = -DAPP_NAME=\\\"RedisDesktopManager\\\" -DAPP_VERSION=\\\""%VERSION%"\\\" -DCRASH_SERVER_URL=\\\"https://oops.redisdesktop.com/crash-report\\\"')" > Makefile.Release2
   - nmake -f Makefile.Release2
   - cd C:\projects\redisdesktopmanager\src
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" set msvc=msvc2017
