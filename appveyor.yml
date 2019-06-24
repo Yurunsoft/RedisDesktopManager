@@ -10,6 +10,8 @@ environment:
     qt: 5.9
     releaseName: RDM_qt59_vs2017_x64
 before_build:
+  - cd C:\projects\redisdesktopmanager
+  - git submodule update --init --recursive
   - cd C:\projects\redisdesktopmanager\3rdparty\qredisclient\3rdparty\hiredis
   - git apply ../hiredis-win.patch
   - cd C:\projects\redisdesktopmanager\3rdparty
