@@ -27,6 +27,7 @@ before_build:
   - if "%platform%"=="x86" call "%vcvarsall%" x86
   - if "%platform%"=="x64" call "%vcvarsall%" x64
 build_script:
+  - cd C:\projects\redisdesktopmanager
   - qmake
   - nmake
 after_build:
