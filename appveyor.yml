@@ -19,14 +19,6 @@ before_build:
   # - cd C:\projects\redisdesktopmanager\3rdparty\qredisclient\3rdparty\qsshclient\3rdparty\libssh2
   # - cmake -G "Visual Studio 15 2017" -DCRYPTO_BACKEND=OpenSSL -DBUILD_EXAMPLES=off -DBUILD_TESTING=off -H. -Bbuild
   # - cmake --build build --config "Release"
-  - cd C:\projects\redisdesktopmanager
-  - set VERSION=0.9.4.1055
-  - python.exe ./build/utils/set_version.py %VERSION% > ./src/version.h
-  - python.exe ./build/utils/set_version.py %VERSION% > ./3rdparty/crashreporter/src/version.h
-  - cd ./3rdparty/crashreporter
-  - qmake CONFIG+=release DESTDIR=C:\projects\redisdesktopmanager\bin\windows\release
-  - powershell -Command "(Get-Content Makefile.Release).replace('DEFINES       =','DEFINES       = -DAPP_NAME=\\\"RedisDesktopManager\\\" -DAPP_VERSION=\\\""%VERSION%"\\\" -DCRASH_SERVER_URL=\\\"https://oops.redisdesktop.com/crash-report\\\"')" > Makefile.Release2
-  - nmake -f Makefile.Release2
   - cd C:\projects\redisdesktopmanager\src
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" set msvc=msvc2017
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" set vs=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build
@@ -38,6 +30,15 @@ before_build:
   - if "%platform%"=="x86" call "%vcvarsall%" x86
   - if "%platform%"=="x64" call "%vcvarsall%" x64
 build_script:
+  - cd C:\projects\redisdesktopmanager
+  - set VERSION=0.9.4.1055
+  - python.exe ./build/utils/set_version.py %VERSION% > ./src/version.h
+  - python.exe ./build/utils/set_version.py %VERSION% > ./3rdparty/crashreporter/src/version.h
+  - cd ./3rdparty/crashreporter
+  - qmake CONFIG+=release DESTDIR=C:\projects\redisdesktopmanager\bin\windows\release
+  - powershell -Command "(Get-Content Makefile.Release).replace('DEFINES       =','DEFINES       = -DAPP_NAME=\\\"RedisDesktopManager\\\" -DAPP_VERSION=\\\""%VERSION%"\\\" -DCRASH_SERVER_URL=\\\"https://oops.redisdesktop.com/crash-report\\\"')" > Makefile.Release2
+  - nmake -f Makefile.Release2
+  - cd C:\projects\redisdesktopmanager
   - qmake
   - nmake
 after_build:
