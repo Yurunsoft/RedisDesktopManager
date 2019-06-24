@@ -16,8 +16,8 @@ before_build:
   - git apply ../hiredis-win.patch
   - cd C:\projects\redisdesktopmanager\3rdparty
   - nuget install zlib-msvc14-x64 -Version 1.2.11.7795
-  - cd C:\projects\redisdesktopmanager\3rdparty\qredisclient\3rdparty\qsshclient\3rdparty\libssh2
-  - cmake -G "Visual Studio 15 2017" -DCRYPTO_BACKEND=OpenSSL -DBUILD_EXAMPLES=off -DBUILD_TESTING=off -H. -Bbuild
+  # - cd C:\projects\redisdesktopmanager\3rdparty\qredisclient\3rdparty\qsshclient\3rdparty\libssh2
+  # - cmake -G "Visual Studio 15 2017" -DCRYPTO_BACKEND=OpenSSL -DBUILD_EXAMPLES=off -DBUILD_TESTING=off -H. -Bbuild
   - cmake --build build --config "Release"
   - cd C:\projects\redisdesktopmanager
   - set VERSION=0.9.4.1055
