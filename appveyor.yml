@@ -2,7 +2,7 @@ os: Visual Studio 2015
 version: 0.9.2.{build}
 clone_depth: 5
 install:
-- git clone -q --depth=5 --recursive --branch=2019.1 https://github.com/uglide/RedisDesktopManager.git C:\projects\RedisDesktopManager
+# - git clone -q --depth=5 --recursive --branch=2019.1 https://github.com/uglide/RedisDesktopManager.git C:\projects\RedisDesktopManager
 - set SRCDIR=C:\projects\RedisDesktopManager
 - set QTDIR=C:\Qt\5.9\msvc2015
 - set PATH=%QTDIR%\bin;%PATH%
