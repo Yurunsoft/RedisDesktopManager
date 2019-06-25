@@ -4,7 +4,7 @@ clone_depth: 5
 install:
 # - git clone -q --depth=5 --recursive --branch=2019.1 https://github.com/uglide/RedisDesktopManager.git C:\projects\RedisDesktopManager
 - set SRCDIR=C:\projects\RedisDesktopManager
-- set QTDIR=C:\Qt\5.9.7\winrt_x86_msvc2017
+- set QTDIR=C:\Qt\5.9.7\msvc2017_64
 - set PATH=%QTDIR%\bin;%PATH%
 - cd %SRCDIR%
 - git submodule update --init --recursive
