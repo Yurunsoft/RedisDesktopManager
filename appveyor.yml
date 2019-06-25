@@ -1,14 +1,14 @@
-image: Visual Studio 2015
+image: Visual Studio 2017
 version: 0.9.2.{build}
 clone_depth: 5
 install:
 # - git clone -q --depth=5 --recursive --branch=2019.1 https://github.com/uglide/RedisDesktopManager.git C:\projects\RedisDesktopManager
 - set SRCDIR=C:\projects\RedisDesktopManager
-- set QTDIR=C:\Qt\5.9.7\msvc2015
+- set QTDIR=C:\Qt\5.9.7\winrt_x86_msvc2017
 - set PATH=%QTDIR%\bin;%PATH%
 - cd %SRCDIR%
 - git submodule update --init --recursive
-- call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
+- call "C:\Program Files (x86)\Microsoft Visual Studio 15.0\VC\vcvarsall.bat"
 - powershell -command "iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/appveyor/secure-file/master/install.ps1'))"
 - nuget install -Version 1.8.0 -OutputDirectory ./3rdparty/qredisclient/3rdparty/windows rmt_libssh2
 - qmake -v
