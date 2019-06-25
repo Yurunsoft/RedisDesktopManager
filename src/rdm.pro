@@ -73,6 +73,11 @@ win32 {
 
     win32-msvc* {
         QMAKE_LFLAGS += /LARGEADDRESSAWARE
+        # Disable C++ compiler optimizations (it fails to compile pyotherside)
+        QMAKE_CXXFLAGS_RELEASE -= -O1
+        QMAKE_CXXFLAGS_RELEASE -= -O2
+        QMAKE_CXXFLAGS_RELEASE -= -O3
+        QMAKE_CXXFLAGS_RELEASE *= -Od
     }
 
     release: DESTDIR = ./../bin/windows/release
