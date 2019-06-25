@@ -5,7 +5,7 @@ install:
 # - git clone -q --depth=5 --recursive --branch=2019.1 https://github.com/uglide/RedisDesktopManager.git C:\projects\RedisDesktopManager
 - set SRCDIR=C:\projects\RedisDesktopManager
 - set QTDIR=C:\Qt\5.9.7\msvc2017_64
-- set PATH=%QTDIR%\bin;%PATH%
+- set PATH=%QTDIR%\bin;%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\bin
 - cd %SRCDIR%
 - git submodule update --init --recursive
 - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"
