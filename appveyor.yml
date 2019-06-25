@@ -41,19 +41,18 @@ build_script:
   - cd C:\projects\redisdesktopmanager\src
   - qmake
   - nmake
-
-  copy /y .\bin\windows\release\rdm.exe .\build\windows\installer\resources\rdm.exe
-  copy /y .\bin\windows\release\rdm.pdb .\build\windows\installer\resources\rdm.pdb
-  C:\projects\redisdesktopmanager\3rdparty\gbreakpad\src\tools\windows\binaries\dump_syms .\bin\windows\release\rdm.pdb  > .\build\windows\installer\resources\rdm.sym
-  cd build/windows/installer/resources/
-  D:\Qt\Qt5.9.6\5.9.6\msvc2015\bin\windeployqt --no-angle --no-opengl-sw --no-compiler-runtime --no-translations --release --force --qmldir C:\projects\redisdesktopmanager\src\qml rdm.exe
-  rmdir /S /Q .\platforminputcontexts
-  rmdir /S /Q .\qmltooling
-  rmdir /S /Q .\QtGraphicalEffects
-  del /Q  .\imageformats\qtiff.dll
-  del /Q  .\imageformats\qwebp.dll
-  cd C:\projects\redisdesktopmanager
-  call "C:\\Program Files (x86)\\NSIS\\makensis.exe" /V1 /DVERSION=%VERSION% ./build/windows/installer/installer.nsi
+  - copy /y .\bin\windows\release\rdm.exe .\build\windows\installer\resources\rdm.exe
+  - copy /y .\bin\windows\release\rdm.pdb .\build\windows\installer\resources\rdm.pdb
+  - C:\projects\redisdesktopmanager\3rdparty\gbreakpad\src\tools\windows\binaries\dump_syms .\bin\windows\release\rdm.pdb  > .\build\windows\installer\resources\rdm.sym
+  - cd build/windows/installer/resources/
+  - D:\Qt\Qt5.9.6\5.9.6\msvc2015\bin\windeployqt --no-angle --no-opengl-sw --no-compiler-runtime --no-translations --release --force --qmldir C:\projects\redisdesktopmanager\src\qml rdm.exe
+  - rmdir /S /Q .\platforminputcontexts
+  - rmdir /S /Q .\qmltooling
+  - rmdir /S /Q .\QtGraphicalEffects
+  - del /Q  .\imageformats\qtiff.dll
+  - del /Q  .\imageformats\qwebp.dll
+  - cd C:\projects\redisdesktopmanager
+  - call "C:\\Program Files (x86)\\NSIS\\makensis.exe" /V1 /DVERSION=%VERSION% ./build/windows/installer/installer.nsi
 after_build:
   # - if "%APPVEYOR_REPO_TAG%"=="true" windeployqt bin\RedisDesktopManager.exe --qmldir %QTDIR%\qml
 artifacts:
