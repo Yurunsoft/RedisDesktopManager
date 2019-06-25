@@ -9,6 +9,7 @@ install:
 - cd %SRCDIR%
 - git submodule update --init --recursive
 - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
+- call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\Bin\vcvars32"
 - powershell -command "iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/appveyor/secure-file/master/install.ps1'))"
 - nuget install -Version 1.8.0 -OutputDirectory ./3rdparty/qredisclient/3rdparty/windows rmt_libssh2
 - qmake -v
